@@ -1,6 +1,6 @@
 import math
 import re
-
+from textwrap import wrap
 
 def pad_text(text, length):
     diff = length - len(text)
@@ -32,11 +32,13 @@ def get_label_spans(token_labels):
     return out
 
 
-def pretty_print_ne(text, labels):
-    tokens = text.split(' ')
-    labels = labels.split(' ')
-    line1 = []
-    line2 = []
+def pretty_print_ne(tokens, labels, width=80):
+    if type(tokens) == str:
+        tokens = tokens.split(' ')
+    if type(labels) == str:
+        labels = labels.split(' ')
+    token_line = []
+    label_line = []
     label_spans = get_label_spans(labels)
     for label_span in label_spans:
         label_text = label_span['label']
@@ -47,13 +49,22 @@ def pretty_print_ne(text, labels):
         pad_token = ' ' if other_token else '_'
         label_text = '' if other_token else label_text
         label_text = center_text(label_text, pad_length, pad_token=pad_token)
-        line1.append(label_text)
+        label_line.append(label_text)
         pad_length = max(len(token_text), len(label_text))
-        line2.append(pad_text(token_text, pad_length))
+        token_line.append(pad_text(token_text, pad_length))
 
-    print(' '.join(line1))
-    print(' '.join(line2)+'\n')
+    token_line = ' '.join(token_line)
+    label_line = ' '.join(label_line)
+    token_lines = wrap(token_line, width=width)
+
+    index = 0
+    for i, token in enumerate(token_lines):
+        end_index = index + len(token) + 1
+        print(label_line[index:end_index])
+        index = end_index
+        print(token+'\n')
 
 
-def ppn(text, labels):
-    return pretty_print_ne(text, labels)
+if __name__ == '__main__':
+    pretty_print_ne("On April 1, 1976, Apple Computer Company was founded by Steve Jobs, Steve Wozniak, and Ronald Wayne.",
+                 "O B-DATE I-DATE I-DATE B-ORG I-ORG I-ORG O O O B-PER I-PER B-PER I-PER O B-PER I-PER")
