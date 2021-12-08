@@ -1,6 +1,7 @@
 import math
 import re
 from textwrap import wrap
+from shutil import get_terminal_size
 
 def pad_text(text, length):
     diff = length - len(text)
@@ -31,8 +32,9 @@ def get_label_spans(token_labels):
         previous_label = label_name
     return out
 
-
-def pretty_print_ne(tokens, labels, width=80):
+def pretty_ne(tokens, labels, width=None):
+    if width is None:
+        width = get_terminal_size().columns
     if type(tokens) == str:
         tokens = tokens.split(' ')
     if type(labels) == str:
@@ -58,11 +60,17 @@ def pretty_print_ne(tokens, labels, width=80):
     token_lines = wrap(token_line, width=width)
 
     index = 0
+    output = ''
     for i, token in enumerate(token_lines):
         end_index = index + len(token) + 1
-        print(label_line[index:end_index])
+        output += label_line[index:end_index]+'\n'
         index = end_index
-        print(token+'\n')
+        output += token+'\n\n'
+    return output
+
+
+def pretty_print_ne(tokens, labels, width=None):
+    print(pretty_ne(tokens, labels, width))
 
 
 if __name__ == '__main__':
