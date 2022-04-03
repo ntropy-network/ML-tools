@@ -1,13 +1,20 @@
-# Cross encoder labeller
+# Parallel cross encoders
 
-- This model use multi-labels transformer (bart or bert). It can process multiple labels in parallel for faster computations (for both training and inference).
+ This project proposes a technique to speed up cross-encoders computation (both during training and inference).
+It uses a special attention mechanism that allows the network to predict over several labels in parallel.
 
-- Install project using poetry or pip:
+ This codebase uses the AG News text classification dataset from HuggingFace (4 labels).
+You can find more information there: https://github.com/huggingface/datasets/tree/master/datasets/ag_news
 
-`poetry install` or `pip install .`
+## How to run the experiment ?
 
-- You can use Google Colab for a free GPU.
+ Install project using poetry or pip:
 
-- To train the models, run the `Train.ipynb` notebook
+    `poetry install` or `pip install .`
 
-- To evaluate the models, run the `Test.ipynb` notebook
+ You can use Google Colab for a free GPU. In that case, you should upload the content of this folder on your google Drive and run the notebooks on Colab.
+
+ To train the models, run the `Train.ipynb` notebook
+
+ To evaluate the models, run the `Test.ipynb` notebook
+
