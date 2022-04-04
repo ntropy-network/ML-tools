@@ -4,24 +4,14 @@ from typing import Optional
 
 import torch
 import torch.utils.checkpoint
-
-from labeller.src.models.multilabel_helper import BartMultiLabelHelper
-
+from parallel_cross_encoder.models.multilabel_helper import BartMultiLabelHelper
 from torch import nn
 from torch.nn import BCEWithLogitsLoss
 from transformers.models.bart.modeling_bart import (
-    BartConfig,
-    BartDecoder,
-    BartEncoder,
-    BartEncoderLayer,
-    BartPretrainedModel,
-    BaseModelOutput,
-    BaseModelOutputWithPastAndCrossAttentions,
-    Seq2SeqModelOutput,
-    Seq2SeqSequenceClassifierOutput,
-    _make_causal_mask,
-    shift_tokens_right,
-)
+    BartConfig, BartDecoder, BartEncoder, BartEncoderLayer,
+    BartPretrainedModel, BaseModelOutput,
+    BaseModelOutputWithPastAndCrossAttentions, Seq2SeqModelOutput,
+    Seq2SeqSequenceClassifierOutput, _make_causal_mask, shift_tokens_right)
 
 
 def shift_right(tensor: torch.Tensor):

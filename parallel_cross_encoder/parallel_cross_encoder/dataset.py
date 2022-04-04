@@ -1,13 +1,12 @@
 import math
 import os
 import random
-from typing import List
 
 import numpy as np
 import torch
 from datasets import load_dataset
 
-from .configs import TestConfigs, TrainConfigs
+from parallel_cross_encoder.configs import TestConfigs, TrainConfigs
 
 os.environ["TOKENIZERS_PARALLELISM"] = "false"
 

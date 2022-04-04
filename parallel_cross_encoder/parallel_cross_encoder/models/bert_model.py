@@ -2,21 +2,13 @@ import copy
 import math
 
 import torch
-
-from labeller.src.models.multilabel_helper import BertMultiLabelHelper
-
+from parallel_cross_encoder.models.multilabel_helper import BertMultiLabelHelper
 from torch import nn
 from torch.nn import BCEWithLogitsLoss
 from transformers.models.distilbert.modeling_distilbert import (
-    BaseModelOutput,
-    DistilBertForSequenceClassification,
-    DistilBertModel,
-    Embeddings,
-    MultiHeadSelfAttention,
-    SequenceClassifierOutput,
-    Transformer,
-    TransformerBlock,
-)
+    BaseModelOutput, DistilBertForSequenceClassification, DistilBertModel,
+    Embeddings, MultiHeadSelfAttention, SequenceClassifierOutput, Transformer,
+    TransformerBlock)
 
 
 class MultiLabelsEmbeddings(Embeddings):

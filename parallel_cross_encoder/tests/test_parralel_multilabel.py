@@ -1,7 +1,5 @@
-import atexit
-from numpy import dtype
 import torch
-from labeller.src.models.multilabel_helper import BertMultiLabelHelper
+from parallel_cross_encoder.models.multilabel_helper import BertMultiLabelHelper
 
 
 def test_attention_mask():

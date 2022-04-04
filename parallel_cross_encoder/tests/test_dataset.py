@@ -1,7 +1,7 @@
 from datasets import load_dataset
 
-from labeller.src.configs import TrainConfigs
-from labeller.src.dataset import (
+from parallel_cross_encoder.configs import TrainConfigs
+from parallel_cross_encoder.dataset import (
     LABELS,
     NewsDatasetInferenceMultiLabel,
     NewsDatasetSingleLabel,

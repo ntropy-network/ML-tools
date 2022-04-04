@@ -1,16 +1,15 @@
-from collections import namedtuple
-from copy import deepcopy
 import time
 
 import pytorch_lightning as pl
-from labeller.src.dataset import load_train_data
-from labeller.src.models.lightning_model import LightningModel, load_model
-from pytorch_lightning.callbacks import EarlyStopping, ModelCheckpoint
+from pytorch_lightning.callbacks import (Callback, EarlyStopping,
+                                         ModelCheckpoint)
 from pytorch_lightning.loggers import TensorBoardLogger
-from sklearn.metrics import accuracy_score, precision_recall_fscore_support
 from torch.utils.data.dataloader import DataLoader
 from transformers.data.data_collator import DataCollatorWithPadding
-from pytorch_lightning.callbacks import Callback
+
+from parallel_cross_encoder.dataset import load_train_data
+from parallel_cross_encoder.models.lightning_model import (LightningModel,
+                                                           load_model)
 
 from .configs import TrainConfigs
 
