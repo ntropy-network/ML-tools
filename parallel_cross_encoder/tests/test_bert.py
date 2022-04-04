@@ -1,5 +1,5 @@
 import pytest
-from labeller.src.models.bert_model import DistilBertForMultiSequenceClassification
+from parallel_cross_encoder.models.bert_model import DistilBertForMultiSequenceClassification
 from transformers import AutoTokenizer
 
 

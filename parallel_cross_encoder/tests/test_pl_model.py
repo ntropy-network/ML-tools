@@ -1,7 +1,6 @@
 import torch
-from labeller.src.configs import TestConfigs, TrainConfigs
-from labeller.src.dataset import load_test_data
-from labeller.src.models.lightning_model import LightningModel
+from parallel_cross_encoder.configs import TrainConfigs
+from parallel_cross_encoder.models.lightning_model import LightningModel
 
 
 def test_pl_model():

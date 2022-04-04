@@ -1,17 +1,11 @@
 import time
-import torch
-from typing import List, Tuple
 
-from labeller.src.configs import TestConfigs
-from labeller.src.dataset import load_test_data
-from labeller.src.models.lightning_model import LightningModel
-from sklearn.metrics import (
-    accuracy_score,
-    f1_score,
-    log_loss,
-    precision_recall_fscore_support,
-    roc_auc_score,
-)
+import torch
+from sklearn.metrics import accuracy_score, precision_recall_fscore_support
+
+from parallel_cross_encoder.configs import TestConfigs
+from parallel_cross_encoder.dataset import load_test_data
+from parallel_cross_encoder.models.lightning_model import LightningModel
 
 
 def evaluate_model(

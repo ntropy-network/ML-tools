@@ -1,4 +1,4 @@
-from labeller.src.configs import TrainConfigs
+from parallel_cross_encoder.configs import TrainConfigs
 
 
 def test_config():

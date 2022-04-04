@@ -1,5 +1,5 @@
 import pytest
-from labeller.src.models.bart_model import BartForMultiSequenceClassification
+from parallel_cross_encoder.models.bart_model import BartForMultiSequenceClassification
 from transformers import AutoTokenizer
 
 

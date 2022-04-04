@@ -5,10 +5,10 @@ import numpy as np
 import pytorch_lightning as pl
 import torch
 
-from labeller.src.configs import TrainConfigs
-from labeller.src.dataset import LABELS, NewsDatasetInferenceMultiLabel
-from labeller.src.models.bart_model import BartForMultiSequenceClassification
-from labeller.src.models.bert_model import DistilBertForMultiSequenceClassification
+from parallel_cross_encoder.configs import TrainConfigs
+from parallel_cross_encoder.dataset import NewsDatasetInferenceMultiLabel
+from parallel_cross_encoder.models.bart_model import BartForMultiSequenceClassification
+from parallel_cross_encoder.models.bert_model import DistilBertForMultiSequenceClassification
 
 from psutil import cpu_count
 from sklearn.metrics import accuracy_score, precision_recall_fscore_support

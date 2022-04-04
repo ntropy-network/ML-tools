@@ -1,11 +1,11 @@
 [tool.poetry]
-name = "labeller"
+name = "parallel_cross_encoder"
 version = "0.1.0"
-description = "Cross encoder labeller"
-authors = ["labelling <labelling@ntropy.network>"]
+description = "Parallel cross encoder"
+authors = ["louis outin <louis@ntropy.network>"]
 
 [tool.poetry.dependencies]
-python = "^3.7"
+python = "^3.8"
 transformers = "^4.12.3"
 torch = "^1.10.0"
 scikit-learn = "^1.0.1"
